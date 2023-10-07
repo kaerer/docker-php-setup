@@ -3,11 +3,12 @@ Fast lightweight Docker network using PHP MySQL Nginx and Node
 
 ## Containers
 ------------
-- php + node + composer
-- node
-- memcached
-- redis
-- mysql
+- php:8.1 + node:14 + composer
+- node:alpine
+- memcached:alpine
+- redis:alpine
+- mysql:8
+- nginx:stable-alpine
 
 ## Setup
 ------------

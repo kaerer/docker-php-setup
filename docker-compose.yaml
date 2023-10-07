@@ -29,6 +29,10 @@ services:
       - "9000:9000"
     volumes:
       - ./app:/var/www/project
+    depends_on:
+      - db-service
+      - cache-redis-service
+      - cache-memcached-service
     networks:
       - main-network
     environment:

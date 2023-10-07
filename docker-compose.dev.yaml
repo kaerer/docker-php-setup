@@ -12,11 +12,11 @@ services:
       XDEBUG_MODE: "${XDEBUG_MODE:-off}"
   db-service:
     ports:
-      - "3306:3306"
+      - "${MYSQL_PORT}:3306"
     restart: unless-stopped
   cache-redis-service:
     ports:
-      - "6379:6379"
+      - "${REDIS_PORT}:6379"
   cache-memcached-service:
     ports:
-      - "11211:11211"
+      - "${MEMCACHE_PORT}:11211"
