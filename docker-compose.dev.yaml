@@ -1,0 +1,22 @@
+services:
+  app:
+    build:
+      dockerfile: ./php/Dockerfile
+      target: "${BUILD_TARGET:-app}"
+    container_name: app-container-dev
+    volumes:
+      - ./app:/var/www/project
+      - ./php/conf.d/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini:ro
+    environment:
+      # See https://xdebug.org/docs/all_settings#mode
+      XDEBUG_MODE: "${XDEBUG_MODE:-off}"
+  db-service:
+    ports:
+      - "3306:3306"
+    restart: unless-stopped
+  cache-redis-service:
+    ports:
+      - "6379:6379"
+  cache-memcached-service:
+    ports:
+      - "11211:11211"
